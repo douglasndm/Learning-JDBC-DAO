@@ -1,10 +1,15 @@
 package aplication;
 
-import model.entities.Department;
+import model.dao.DaoFactory;
+import model.dao.SellerDAO;
+import model.entities.Seller;
 
 public class Program {
     public static void main(String[] args) {
-        Department department = new Department(1, "Books");
-        System.out.println(department);
+        SellerDAO sellerDao = DaoFactory.CreateSellerDao();
+
+        Seller seller = sellerDao.findById(3);
+
+        System.out.println(seller);
     }
 }
